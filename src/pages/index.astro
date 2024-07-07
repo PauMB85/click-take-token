@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="ClickTakeToken">
+  <main>
+    <h1>
+      <div>Welcome to</div>
+      <div class="text-gradient">Click Take Token</div>
+    </h1>
+    <div class="order">
+      <div id="rubic-widget-root"></div>
+      <div class="instructions">
+        <code
+          >Intercambio de cualquier token en un solo click, asegurando siempre
+          las mejores opciones disponibles.
+        </code>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script is:inline type="text/javascript">
+  const configuration = {
+    from: "ETH",
+    to: "rUSDT",
+    fromChain: "ETH",
+    toChain: "ROOTSTOCK",
+    amount: 0,
+    iframe: "true",
+    hideSelectionFrom: false,
+    hideSelectionTo: false,
+    theme: "dark",
+    injectTokens: {},
+    slippagePercent: {
+      instantTrades: 2,
+      crossChain: 5,
+    },
+    crossChainIntegratorAddress: "0x03B1E454F902771A7071335f44042A3233836BB3",
+    onChainIntegratorAddress: "0x03B1E454F902771A7071335f44042A3233836BB3",
+  };
+
+  Object.freeze(configuration);
+
+  rubicWidget.init(configuration);
+</script>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 1500px;
+    max-width: calc(100% - 25rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+    margin-top: 0px;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .order {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .instructions {
+    max-width: 400px;
+    margin-left: 1rem; /* Espacio entre los elementos */
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: rgb(var(--accent-light));
+  }
+  #rubic-widget-root {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 1rem;
+  }
+  @media screen and (max-width: 768px) {
+    main {
+      margin: auto;
+      padding: 1rem;
+      max-width: calc(100% - 2rem);
+    }
+    .order {
+      flex-direction: column-reverse;
+    }
+
+    #rubic-widget-root {
+      width: 100%;
+      max-width: none;
+      margin-bottom: 1rem;
+    }
+
+    .instructions {
+      flex: 1;
+      margin-left: 0;
+    }
+  }
+</style>

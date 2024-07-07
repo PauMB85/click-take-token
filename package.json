@@ -7,9 +7,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "deploy": "aws s3 --profile 'my-profile' --region 'my-region' sync ./dist 's3://my-bucket-name/'",
-    "invalidate": "aws cloudfront --profile 'my-profile' --region 'my-region' create-invalidation  --distribution-id 'my-distribution-id' --paths '/*'"
+    "astro": "astro"
   },
   "dependencies": {
     "astro": "^4.11.4",
