@@ -1,0 +1,19 @@
+{
+  "name": "clicktaketoken",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "aws s3 --profile 'my-profile' --region 'my-region' sync ./dist 's3://my-bucket-name/'",
+    "invalidate": "aws cloudfront --profile 'my-profile' --region 'my-region' create-invalidation  --distribution-id 'my-distribution-id' --paths '/*'"
+  },
+  "dependencies": {
+    "astro": "^4.11.4",
+    "@astrojs/check": "^0.7.0",
+    "typescript": "^5.5.3"
+  }
+}
